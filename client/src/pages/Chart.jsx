@@ -186,68 +186,70 @@ const Chart = () => {
 
   return (
     <>
-      <div className="filters">
-        <label>
-          Age:
-          <select
-            value={ageFilter}
-            onChange={(e) => setAgeFilter(e.target.value)}
-          >
-            <option value="all">All</option>
-            <option value="15-25">15-25</option>
-            <option value=">25">&gt;25</option>
-          </select>
-        </label>
-        <label>
-          Gender:
-          <select
-            value={genderFilter}
-            onChange={(e) => setGenderFilter(e.target.value)}
-          >
-            <option value="all">All</option>
-            <option value="Male">Male</option>
-            <option value="Female">Female</option>
-          </select>
-        </label>
-        <label>
-          Start Date:
-          <input
-            type="date"
-            value={startDate}
-            onChange={(e) => setStartDate(e.target.value)}
-          />
-        </label>
-        <label>
-          End Date:
-          <input
-            type="date"
-            value={endDate}
-            onChange={(e) => setEndDate(e.target.value)}
-          />
-        </label>
-      </div>
-
-      <div className="container">
-        <div style={{ width: "50%" }}>
-          <Bar data={chartData} options={options} />
-        </div>
-        {selectedFeature && (
-          <div style={{ width: "50%" }}>
-            <h2>Feature Trend Line Chart</h2>
-            <LineChart
-              data={filteredData}
-              selectedFeature={selectedFeature}
-              startDate={startDate}
-              endDate={endDate}
+      <div className="filters-container">
+        <div className="filters">
+          <label>
+            Age:
+            <select
+              value={ageFilter}
+              onChange={(e) => setAgeFilter(e.target.value)}
+            >
+              <option value="all">All</option>
+              <option value="15-25">15-25</option>
+              <option value=">25">&gt;25</option>
+            </select>
+          </label>
+          <label>
+            Gender:
+            <select
+              value={genderFilter}
+              onChange={(e) => setGenderFilter(e.target.value)}
+            >
+              <option value="all">All</option>
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+            </select>
+          </label>
+          <label>
+            Start Date:
+            <input
+              type="date"
+              value={startDate}
+              onChange={(e) => setStartDate(e.target.value)}
             />
-          </div>
-        )}
-      </div>
+          </label>
+          <label>
+            End Date:
+            <input
+              type="date"
+              value={endDate}
+              onChange={(e) => setEndDate(e.target.value)}
+            />
+          </label>
+        </div>
 
-      <div>
-        <button className="logoutBtn" onClick={() => dispatch(logOutUser())}>
-          Logout
-        </button>
+        <div className="charts-container">
+          <div className="chart">
+            <Bar data={chartData} options={options} />
+          </div>
+          {selectedFeature && (
+            <div className="chart">
+              <h2>Feature Trend Line Chart</h2>
+              <LineChart
+                data={filteredData}
+                selectedFeature={selectedFeature}
+                startDate={startDate}
+                endDate={endDate}
+              />
+            </div>
+          )}
+        </div>
+
+        <div className="logout-container">
+          <button className="logoutBtn" onClick={() => dispatch(logOutUser())}>
+            Logout
+          </button>
+        </div>
       </div>
     </>
   );
