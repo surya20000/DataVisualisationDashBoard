@@ -50,7 +50,7 @@
   
   .chart {
     width: 100%;
-    max-width: 600px; /* Limit the width of each chart */
+    max-width: 600px; 
     margin: 10px;
   }
   
@@ -58,7 +58,6 @@
     margin-top: 20px;
   }
   
-  /* Media Queries for Responsiveness */
   @media (max-width: 768px) {
     .filters {
       flex-direction: column;
@@ -66,6 +65,6 @@
     }
   
     .chart {
-      width: 100%; /* Full width on small screens */
+      width: 100%; 
     }
   }
